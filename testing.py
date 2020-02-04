@@ -1,5 +1,6 @@
-import Tkinter as tk
-from Tkinter import *
+import tkinter as tk
+from tkinter import *
+
 
 # Small function for printing/formatting reasons
 def print_statements():
@@ -17,13 +18,15 @@ class Page(tk.Frame):
 class ConverterScreen(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
-        label = Label(root, text="Converter Page")
+        label = tk.Label(root, text="Converter Page", bg="green")
         label.pack(side="top", fill="both", expand=False)
         label.pack()
-        label1 = Label(root, text="Enter a number ")
+        label1 = tk.Label(root, text="Enter a number ", bg="green")
         label1.place(x=20, y=27)
-        self.entry1 = tk.Entry(root)
+        self.entry1 = tk.Entry(root,bg="green")
         self.entry1.place(x=120, y=23)
+        # fm = Frame(root, bg="green")
+        # fm.pack(side=TOP, expand=NO, fill=NONE)
 
   # Function which is used to calculate how much money you lose with a tax of 5%
     def calc_loss(self):
@@ -54,7 +57,9 @@ class MainView(tk.Frame):
         button_frame = tk.Frame(self)
         container = tk.Frame(self)
         button_frame.pack(fill="none", expand=True)
+        button_frame.configure(bg="green")
         container.pack(side="bottom", fill="both", expand=True)
+        container.configure(bg="green")
 
         b1 = tk.Button(button_frame, text="Start Calculating", command=page.calc_loss)
 
@@ -64,6 +69,7 @@ class MainView(tk.Frame):
 
 if __name__ == '__main__':
     root = tk.Tk()
+
     main = MainView(root)
     main.pack(side="top", fill="both", expand=True)
     root.wm_title("FUT Converter")
